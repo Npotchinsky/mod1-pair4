@@ -1,6 +1,7 @@
 package com.techelevator;
 
 
+import com.techelevator.search.SearchDomain;
 
 public class Application {
 
@@ -8,12 +9,12 @@ public class Application {
 		
 		try {
 
-			// Step Two: Create TELog, and log the start of the application.
+			TElog.log("Search application started.");// Step Two: Create TELog, and log the start of the application.
 			//
 			
 			
 			
-			// Step Four: Instantiate a Search Domain
+			SearchDomain x = new SearchDomain("data");// Step Four: Instantiate a Search Domain
 			//
 			
 			

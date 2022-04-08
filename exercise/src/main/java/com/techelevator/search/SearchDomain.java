@@ -1,10 +1,12 @@
 package com.techelevator.search;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * The Search Domain is a list of files to be read and indexed by the Search Engine.
@@ -22,6 +24,7 @@ public class SearchDomain {
 	 * @param folder
 	 * @throws SearchDomainException
 	 */
+
 	public SearchDomain(String folder) throws SearchDomainException {
 		this.folder = folder;
 		this.files = buildDomain();
@@ -53,7 +56,16 @@ public class SearchDomain {
 	 */
 	private List<String> buildDomain() throws SearchDomainException {
 		List<String> files = new ArrayList<>();
-		// Step Three: Complete the buildDomain method
+		File folderFile = new File(folder);
+
+		try(Scanner read = new Scanner(folderFile)){
+			while(read.hasNext()){
+				files.add(read.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+			throw new SearchDomainException(e.getMessage());
+		}
+		//add filenames to list
 
 
 			
