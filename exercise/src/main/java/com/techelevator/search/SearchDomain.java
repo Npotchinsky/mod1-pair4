@@ -20,9 +20,7 @@ public class SearchDomain {
 	
 	/**
 	 * Create a Search Domain of a folder
-	 * 
-	 * @param folder
-	 * @throws SearchDomainException
+	 *
 	 */
 
 	public SearchDomain(String folder) throws SearchDomainException {
@@ -50,26 +48,20 @@ public class SearchDomain {
 	
 	/**
 	 * Folders are NOT recursively searched.
-	 * 
-	 * @return
-	 * @throws SearchDomainException
 	 */
 	private List<String> buildDomain() throws SearchDomainException {
+
+		try{
 		List<String> files = new ArrayList<>();
 		File folderFile = new File(folder);
+		File[] fileArr = folderFile.listFiles();
 
-		try(Scanner read = new Scanner(folderFile)){
-			while(read.hasNext()){
-				files.add(read.nextLine());
-			}
-		} catch (FileNotFoundException e) {
+		for(File file : fileArr){
+			files.add(file.getName());
+		}
+		return files;
+	} catch (Exception e){
 			throw new SearchDomainException(e.getMessage());
 		}
-		//add filenames to list
-
-
-			
-		return files;
-	}
 	
-}
+}}

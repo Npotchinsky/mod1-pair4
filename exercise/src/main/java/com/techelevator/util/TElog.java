@@ -1,6 +1,4 @@
-package com.techelevator;
-
-import com.techelevator.util.TELogException;
+package com.techelevator.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +9,7 @@ public class TElog {
 
     public static void log(String message){
 
-        File log = new File("logs/search.log");//create file obj logs/search.log
+        File log = new File("exercise/logs/search.log");//create file obj logs/search.log
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(log, true))){
           pw.println(message);
         } catch (FileNotFoundException e) {

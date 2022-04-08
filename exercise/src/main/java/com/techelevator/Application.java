@@ -2,6 +2,8 @@ package com.techelevator;
 
 
 import com.techelevator.search.SearchDomain;
+import com.techelevator.search.SearchEngine;
+import com.techelevator.util.TElog;
 
 public class Application {
 
@@ -14,12 +16,15 @@ public class Application {
 			
 			
 			
-			SearchDomain x = new SearchDomain("data");// Step Four: Instantiate a Search Domain
+			SearchDomain dataSearch = new SearchDomain("exercise/data");
+			TElog.log(dataSearch.toString());// Step Four: Instantiate a Search Domain
 			//
 			
 			
 			
-			// Step Six: Single word search
+			SearchEngine sE = new SearchEngine(dataSearch);
+			sE.indexFiles();
+			sE.search("squirrel");// Step Six: Single word search
 			//
 
 			
