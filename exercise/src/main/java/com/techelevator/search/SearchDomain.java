@@ -57,7 +57,7 @@ public class SearchDomain {
 		File[] fileArr = folderFile.listFiles();
 
 		for(File file : fileArr){
-			files.add(file.getName());
+			files.add(file.getAbsolutePath());
 		}
 		return files;
 	} catch (Exception e){
