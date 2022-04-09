@@ -24,7 +24,7 @@ public class SearchEngine {
 	
 	public void indexFiles() throws SearchEngineException, Exception {
 
-		for(int i = 0; i < sd.getFiles().size()-1; i++){
+		for(int i = 0; i < sd.getFiles().size(); i++){
 			File f = new File(sd.getFiles().get(i));
 			try(Scanner fileReader = new Scanner(f)){
 				while (fileReader.hasNext()){
